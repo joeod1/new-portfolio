@@ -1,0 +1,9 @@
+<% layout("./skeleton") %>
+<div class="w-reading">
+    <h1 class="display-2">Welcome to the homepage.</h1>
+    <div class="d-flex flex-row gap-1 mt-3">
+        <p class="align-middle mb-0">Here is some filler text. The sole purpose of it is to take up space. Anything could go here. Click on the link to not find out more. </p>
+        <div class="col-3 d-flex align-items-center justify-content-center "><a class="ms-1 btn btn-primary d-inline-block align-middle w-100" href="#">Call to Action</a></div>
+    </div>
+</div>
+<script src="bundle.js"></script>

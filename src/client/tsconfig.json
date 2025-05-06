@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "../dist",
+        "module": "ES6",
+        "moduleResolution": "bundler",
+        "paths": {
+            "undici-types": [
+                "../../node_modules/undici-types/index.d.ts"
+            ]
+        }
+    },
+
+}
