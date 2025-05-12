@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
 
 <head>
   <title><%= it.title ?? "Web Server Template" %></title>
@@ -8,23 +8,33 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-      <a class="navbar-brand" href="#">Web Server Template</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-      </div>
-    </div>
-  </nav>
-  <div class="flex-grow-1 container d-flex flex-column text-center justify-content-center align-items-center">
+  <%~ include("./partials/navbar") %>
+  <% /* <div style="height: 56px;"></div> */ %>
+
+  <div class="flex-grow-1 d-flex flex-column justify-content-start align-items-start">
     <%~ it.body %>
   </div>
+
+  <script src="/index.js"></script>
+
+  <footer>
+    <div class="container">
+      <div class="d-flex row flex-wrap">
+        <div class="col-md-6 col-12 p-4 d-flex flex-column justify-content-center">
+          <h5 class="mb-0">Joseph O'Dowd</h5>
+          <a class="text-reset" href="mailto:joseph-odowd-dev@outlook.com">joseph-odowd-dev@outlook.com</a>
+        </div>
+        <div class="col-md-6 col-12 p-4 d-flex flex-md-column flex-row justify-content-center gap-3 align-items-end">
+          <a href="https://github.com/joeod1/" class="img-btn">
+            <img src="/social-icons/github-mark-white.svg" alt="logo" height=24>
+          </a>
+          <a href="https://www.linkedin.com/in/joseph-o-dowd-427a701a6/" class="img-btn">
+            <img src="/social-icons/InBug-White.png" alt="logo" height=24>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>

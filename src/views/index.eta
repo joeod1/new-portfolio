@@ -1,9 +1,106 @@
 <% layout("./skeleton") %>
-<div class="w-reading">
-    <h1 class="display-2">Welcome to the homepage.</h1>
-    <div class="d-flex flex-row gap-1 mt-3">
-        <p class="align-middle mb-0">Here is some filler text. The sole purpose of it is to take up space. Anything could go here. Click on the link to not find out more. </p>
-        <div class="col-3 d-flex align-items-center justify-content-center "><a class="ms-1 btn btn-primary d-inline-block align-middle w-100" href="#">Call to Action</a></div>
+
+<!-- Above-the-fold hero -->
+<div class="hero w-100 h-100">
+<% /* <div class="hero container d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap"> */ %>
+    <!-- Fancy fragment shader background -->
+    <canvas class="glslCanvas layer" data-fragment-url="/shaders/hero.glsl"></canvas>
+    
+    <div class="container layer d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap">
+        <!-- Call to action -->
+        <div class="col-xl-6 col-lg-6 col-12">
+            <h1 class="header-1 split" style="font-family:bodoni">Software Developer</h1>
+            <div class="d-flex flex-row gap-1">
+                <% /* <p class="align-middle mb-0">Software developer </p> */ %>
+            </div>
+            <div class="d-flex flex-row gap-1 float-end mt-2">
+                <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="#">E-Mail</a>
+                <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="#">GitHub</a>
+            </div>
+        </div>
+
+        <!-- Limited article list -->
+        <div class="col-lg-4 col-12">
+            <%~ include("./partials/article-list", {articles: it.articles, direction: "VERTICAL"}) %>
+        </div>
     </div>
 </div>
-<script src="bundle.js"></script>
+<script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+
+<!-- 'About me' section -->
+<div class="container w-100 my-2 text-right">
+    <h2 class="header-2 text-end mt-3" style="font-family: Bodoni, serif" id="wia-header">Who I Am</h2>
+
+    <!-- List of project cards; animations are handled by GSAP -->
+    <div class="d-flex flex-row flex-wrap">
+        <%~ include("./partials/who-am-i", {
+            classes: " col-lg-3 col-12 col-md-6 ",
+            title: "Software Developer",
+            description: "Writing code is a skill that I've developed over years of hobbies, education, and work.",
+            links: [
+                { href: "/blog", text: "Blog" },
+                { href: "https://github.com/joeod1", text: "GitHub", icon: "/social-icons/github-mark-white.svg"}
+            ]
+        }) %>
+        <%~ include("./partials/who-am-i", {
+            classes: " col-lg-3 col-12 col-md-6 ",
+            title: "Music Producer",
+            description: "My family's always had music equipment laying around the house, so I've slowly gotten into it.",
+            audio: "/audio/music-sample.mp3"
+        }) %>
+        <%~ include("./partials/who-am-i", {
+            classes: " col-lg-3 col-12 col-md-6 ",
+            title: "Casual Hiker",
+            description: "There's nothing better than taking a walk in nature. Everything tells a story. I photograph what I see.",
+        }) %>
+        <%~ include("./partials/who-am-i", {
+            classes: " col-lg-3 col-12 col-md-6 ",
+            title: "College Graduate",
+            description: "I graduated in 2024 from the University of Massachusetts Darmouth with highest honors and the CIS department's outstanding transfer student award.",
+        }) %>
+    </div>
+</div>
+
+<div class="hero w-100 h-100">
+    <div class="layer gradient-bg"></div>
+    <div class="container layer pt-3">
+    <h2 class="header-2" style="font-family: Bodoni, serif">Project Showcase</h2>
+        <div class="d-flex flex-row flex-wrap masonry-grid">
+            <%~ include("./partials/project-card", { 
+                title: "University Capstone", 
+                langs: ["Python", "HTML", "CSS", "SQL"],
+                frameworks: ["Plotly", "Dash", "PostgreSQL", "Cytoscape.js", "Pyro5"],
+                description: "My university capstone project was for a client; it was a collaboration between myself and two other students. My contribution to the project was the pipeline from realtime data input, to database, to analysis (to database), to visualization and display. Millions of rows are accounted for with every action; a table allows for complete filtering and sorting, while the visualization pane allows for pie charts, histograms, and node graphs on any column. The web UI was prototyped with Figma before being created and finely tuned in Dash, HTML, and CSS." 
+            }) %>
+            <%~ include("./partials/project-card", { 
+                title: "Worm Game", 
+                image: "/project-images/wormgame.webp",
+                langs: ["C++", "GLSL"],
+                frameworks: ["SFML"],
+                description: "Like the game \"Snake\", but your character splits when it collides with itself. This project taught me a lot about designing complex systems; all interactions, behaviors, inputs, and physics were written from scratch. The cost of these are brought down with a chunking system; offscreen entities are not rendered and receive fewer logic calls." 
+            }) %>
+            <%~ include("./partials/project-card", { 
+                title: "Northeast Generals Website", 
+                image: "/project-images/ngsite.webp",
+                langs: ["Go", "SQL", "HTMl", "CSS"],
+                frameworks: ["Bootstrap", "RSS", "PostgreSQL"],
+                description: "The current iteration of the Northeast Generals website is a custom-built solution using Go. It was built this way because there is significant content scraping and aggregation from their other websites; it could be considered an information hub, focusing on up-to-date news and game schedules." 
+            }) %>
+            <%~ include("./partials/project-card", {
+                title: "Pirate Game",
+                image: "/project-images/pirategame.webp",
+                langs: ["C#", "Ink"],
+                frameworks: ["Unity"],
+                description: "A group project for school, you play as a side-scrolling pirate and a top-down pirate ship in a simulated, procedural world. I contributed the systems for ship movement, ship combat, terrain generation, AI pathfinding, dialogue, and the economy."
+            })%>
+            
+            <%~ include("./partials/project-card", {
+                title: "Hockey Game",
+                image: "/project-images/hockeygame.webp",
+                langs: ["C++"],
+                frameworks: ["SFML"],
+                description: "My first project with SFML, this is a multiplayer game where players must bounce a ball off walls and into platforms to score points. The ball has a random color each time, and it leaves streaks that persist throughout the game. Players may slam into each other to steal the ball. Being my first game project with C++ and SFML, I learned a lot about engine design. All the beginner mistakes mean it's overdue for a rework."
+            })%>
+        </div>
+    </div>
+</div>

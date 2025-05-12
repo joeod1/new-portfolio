@@ -1,0 +1,5 @@
+<div class="w-100 d-flex flex">
+    <img src="/project-images/wormgame.webp" style="height:256px; mask-image: radial-gradient(black 66%, transparent 66%)">
+    <h2 class="header-2">Worm Game</h2>
+    <p>Like the game "Snake", but your character just splits when it collides with itself. This project taught me a lot about designing complex systems, as all interactions, behaviors, inputs, and physics were written from scratch. The cost of these are brought down with a chunking system; offscreen entities are not rendered and receive fewer logic calls.</p>
+</div>

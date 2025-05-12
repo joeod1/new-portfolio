@@ -3,12 +3,15 @@ const devMode = process.env.NODE_ENV !== "production";
 const path = require('path');
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, 'src', 'client', 'index'),
+  entry: {
+    'index': path.join(__dirname, 'src', 'client', 'index.ts'), 
+    'blog-edit': path.join(__dirname, 'src', 'client', 'blog-edit.ts')
+  },
   watch: true,
   output: {
     path: path.join(__dirname, 'src', 'dist'),
     publicPath: './src/dist/',
-    filename: "bundle.js",
+    filename: "[name].js",
     chunkFilename: '[name].js'
   },
   module: {
@@ -37,7 +40,7 @@ module.exports = {
       exclude: /node_modules/,
     },
     {
-      test: /\.s[ac]ss$/i,
+      test: /\.[s]?[ac]ss$/i,
       use: [
         // Creates `style` nodes from JS strings
         devMode ? "style-loader" : MiniCssExtractPlugin.loader,

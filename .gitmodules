@@ -1,0 +1,3 @@
+[submodule "src/dist/shaders/webgl-noise"]
+	path = src/dist/shaders/webgl-noise
+	url = https://github.com/ashima/webgl-noise.git

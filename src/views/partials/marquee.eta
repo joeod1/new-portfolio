@@ -1,0 +1,5 @@
+<div class="w-100 d-flex gap-<%~ it.gap %>">
+    <% it.items.forEach(item => { %>
+        <div class="<%~ it.classes %>"><%~ item %></div>
+    <% }); %>
+</div>

@@ -1,4 +1,8 @@
-src/dist/*
+src/dist/**/*.js
+src/dist/**/*.map
+src/dist/**/*.ttf
+src/dist/**/*.css
 node_modules
 *.log
 *.env
+secret-key

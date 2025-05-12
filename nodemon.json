@@ -2,6 +2,6 @@
     "execMap": {
         "ts": "tsx"
     },
-    "watch": ["src/views", "src/views/**/*.eta"],
+    "watch": ["src/views", "src/routes", "src/routes/**/*.ts", "src/views/**/*.eta"],
     "ignore": ["src/dist", "src/client"]
 }

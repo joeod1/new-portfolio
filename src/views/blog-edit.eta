@@ -1,0 +1,43 @@
+<% layout("./skeleton") %>
+<link href="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/editor/editor.main.min.css" rel="stylesheet">
+<div style="height: 56px;"></div>
+<div class="container d-flex flex-column justify-content-start h-100">
+    
+    <div class="flex-row d-flex justify-content-center mt-4">
+        <div class="col-6">
+            <div style="top:56px; position: sticky" class="d-flex flex-column">
+                <input id="id" type="hidden" value="<%~ it.article.id %>" />
+                <input id="series" class="form-control" placeholder="Series" value="<%~ it.article.series %>"></input>
+                <input id="title" class="form-control my-2" placeholder="TItle" value="<%~ it.article.title %>"></input>
+                <% /* <h1 class="header-2 mb-3"><%= JSON.stringify(it.series) %></h1> */ %>
+                <div id="editor" class="w-reading" style="height: 80vh"></div>
+            </div>
+        </div>
+        <div class="col-6 px-3">
+            <div class="w-reading blog-article">
+            <% if (!it.article) { %>
+                no article selected
+            <% } else { %>
+                <span class="text-muted">
+                    <%= it.article.series %>
+                </span>
+                <h2 class="mt-0">
+                    <%= it.article.title %>
+                    <% if (it.user) {%>
+                        <a href="/blog/<% it.article.id %>/edit">✏️</a>
+                    <% } %>
+                </h2>
+                <div id="content" style="text-align:justify; font-family: serif; font-size: 1.2rem;">
+                    <%~ it.article.content %>
+                </div>
+            <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div aria-hidden="true" class="d-none" id="initialContent"><%= it.article.content %></div>
+
+<a id="saveButton" class="btn btn-primary position-fixed bottom-0 end-0 m-3">Save</a>
+
+<script src="/blog-edit.js"></script>

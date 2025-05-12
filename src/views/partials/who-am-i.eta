@@ -1,0 +1,25 @@
+<div class="<%~ it.classes %> wai p-1">
+    <div class="card h-100 d-flex flex-column">
+        <div class="p-3 flex-grow-1">
+            <h3><%~ it.title %></h3>
+            <p><%~ it.description %></p>
+        </div>
+        <div class="card-img-bottom  px-3 pb-3 gap-3 d-flex flex-row justify-content-end">
+            <% if (it.audio) { %>
+                <audio preload="none" controls src="<%~ it.audio %>"></audio>
+            <% } %>
+            <% if (it.links) {%>
+                <% it.links.forEach(link => { %>
+                
+                    <a href="<%~ link.href %>" class="text-reset">
+                        <% if (link.icon) { %>
+                            <img src="<%~ link.icon %>" alt="<%~ link.text %>" height="24" />
+                        <% } else { %>
+                            <%~ link.text %>
+                        <% } %>
+                    </a>
+                <% }); %>
+            <% } %>
+        </div>
+    </div>
+</div>

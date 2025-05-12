@@ -1,25 +1,27 @@
 import { FastifyInstance, FastifyReply, FastifyRequest, RouteHandler } from "fastify";
 
 
-export default async function homePage(fastify: FastifyInstance) {
+export default async function blog(fastify: FastifyInstance) {
     fastify.get("/", handler);
-    fastify.log.info("Homepage route registered");
+    fastify.log.info("Blog route registered");
 }
 
 const handler: RouteHandler = async function(request: FastifyRequest, response: FastifyReply) {
-    console.log("\n\n\n\nUser:");
-    console.log(request.user);
-    const articles = await this.db
+    let articleQuery = this.db
         .selectFrom('articles')
             .select('articles.title')
             .select('articles.date_created')
             .select('articles.series')
             .select('articles.id')
             .select('articles.public')
-        .orderBy('articles.date_created desc')
-        .where('articles.public', '=', true)
-        .limit(3).execute();
-    return response.viewAsync('index.eta', { 
+        .orderBy('articles.date_created desc');
+
+    if (request.session.user == null) {
+        articleQuery = articleQuery.where('articles.public', '=', true);
+    }
+    const articles = await articleQuery.execute();
+
+    return response.viewAsync('blog.eta', { 
         articles: articles
     });
 }
