@@ -4,6 +4,7 @@ import {fastifyStatic} from "@fastify/static";
 import * as path from "path";
 import "dotenv";
 import { configDotenv } from "dotenv";
+import { readFileSync } from "fs";
 
 
 async function run() {
@@ -14,7 +15,11 @@ async function run() {
 
     // Initialize Fastify
     const server = fastify({
-        logger: true
+        logger: true,
+        https: {
+            cert: readFileSync(process.env.SSL_CERT as string),
+            key: readFileSync(process.env.SSL_KEY as string),
+        }
     });
 
     // Register static files
@@ -40,7 +45,14 @@ async function run() {
         });
     }
 
-    listenServer(8080);
+    if (process.env.NODE_ENV == "production") {
+        server.listen({
+            port: 443,
+            host: "0.0.0.0",
+        });
+    } else { 
+        listenServer(8080);
+    }
 
     await server.ready();
 }
