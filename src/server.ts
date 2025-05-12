@@ -49,7 +49,6 @@ async function run() {
     if (process.env.NODE_ENV == "production") {
         server.register(httpsRedirect);
 
-        fastify().listen({port: 80})
         server.listen({
             port: 443,
             host: "0.0.0.0",
