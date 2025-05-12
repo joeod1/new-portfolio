@@ -5,6 +5,7 @@ import * as path from "path";
 import "dotenv";
 import { configDotenv } from "dotenv";
 import { readFileSync } from "fs";
+import * as httpsRedirect from "fastify-https-redirect";
 
 
 async function run() {
@@ -16,10 +17,10 @@ async function run() {
     // Initialize Fastify
     const server = fastify({
         logger: true,
-        https: {
+        https: (process.env.NODE_ENV == "production") ? {
             cert: readFileSync(process.env.SSL_CERT as string),
             key: readFileSync(process.env.SSL_KEY as string),
-        }
+        } : null
     });
 
     // Register static files
@@ -46,6 +47,9 @@ async function run() {
     }
 
     if (process.env.NODE_ENV == "production") {
+        server.register(httpsRedirect);
+
+        fastify().listen({port: 80})
         server.listen({
             port: 443,
             host: "0.0.0.0",
