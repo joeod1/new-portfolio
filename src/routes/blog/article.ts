@@ -1,7 +1,47 @@
 import { FastifyInstance, FastifyReply, FastifyRequest, RouteHandler } from "fastify";
-import * as marked from "marked";
 import fastifyPassport from "@fastify/passport";
 
+import { Marked, Tokens } from "marked";
+import Mermaid from "mermaid";
+
+import {markedHighlight} from "marked-highlight";
+import hljs from "highlight.js";
+
+// const marked = new Marked();
+const marked = new Marked(
+    markedHighlight({
+      emptyLangClass: 'hljs',
+      langPrefix: 'hljs language-',
+      highlight(code, lang, info) {
+        // if (lang == "mermaid") {
+            
+        // } else {
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language }).value;
+        // }
+      }
+    })
+  );
+  
+
+marked.use({
+    renderer: {
+        image({href, title, text, tokens}) {
+            return `<div class="w-100 d-flex flex-row justify-content-center">
+                        <img src="${href}" tooltip="${title}">
+                    </div>`;
+        },
+        code(o : Tokens.Code) {
+            console.log(o.lang);
+            if (o.lang == "mermaid") {
+                // console.log(o.raw.substring(11, o.raw.length - 4));
+                return "<pre class='mermaid'>" + o.text + "</pre>";
+            } else {
+                return `<pre><code class='hljs language-${o.lang}'>${o.text}</code></pre>`;
+            }
+        }
+    }
+});
 
 export default async function blog(fastify: FastifyInstance) {
     fastify.get("/:id", handler);

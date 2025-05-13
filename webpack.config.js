@@ -10,7 +10,7 @@ module.exports = {
   watch: true,
   output: {
     path: path.join(__dirname, 'src', 'dist'),
-    publicPath: './src/dist/',
+    publicPath: 'auto',
     filename: "[name].js",
     chunkFilename: '[name].js'
   },

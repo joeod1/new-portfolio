@@ -1,5 +1,5 @@
 <div class="d-flex flex-column gap-2">
     <% it.articles.forEach((article) => { %>
-        <%~ include("./article-link", {article: article}) %>
+        <%~ include("./article-link", {article: article, current: article.id == it.currentId}) %>
     <% }) %>
 </div>

@@ -1,7 +1,50 @@
 import * as monaco from "monaco-editor";
-import * as marked from "marked";
+import { Marked, Tokens } from "marked";
+
+import mermaid from "mermaid";
+
+mermaid.initialize({
+    securityLevel: 'loose',
+    theme: 'dark'
+});
+
+import {markedHighlight} from "marked-highlight";
+import hljs from "highlight.js";
+
+const marked = new Marked(
+    markedHighlight({
+      emptyLangClass: 'hljs',
+      langPrefix: 'hljs language-',
+      highlight(code, lang, info) {
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language }).value;
+      }
+    })
+  );
+  
+
+marked.use({
+    renderer: {
+        image({href, title, text, tokens}) {
+            return `<div class="w-100 d-flex flex-row justify-content-center">
+                        <img src="${href}" tooltip="${title}">
+                    </div>`;
+        },
+        code(o : Tokens.Code) {
+            console.log(o.lang);
+            if (o.lang == "mermaid") {
+                // console.log(o.raw.substring(11, o.raw.length - 4));
+                return "<pre class='mermaid'>" + o.text + "</pre>";
+            } else {
+                return `<pre><code class='hljs language-${o.lang}'>${o.text}</code></pre>`;
+            }
+        }
+    }
+});
 
 import {BlogUpdate} from "../common/blog-interfaces";
+// import mermaid from "mermaid";
+// import mermaid from "mermaid";
 
 // Get the initial content from the DOM (presumably passed through by the templating tool)
 const initialContent = document.getElementById("initialContent").textContent;
@@ -23,6 +66,7 @@ const editor = monaco.editor.create(document.getElementById('editor'), {
 async function render() {
     content = editor.getValue();
     document.getElementById("content").innerHTML = await marked.parse(content);
+    await mermaid.run();
     editor.layout();
 }
 // ... upon initialization

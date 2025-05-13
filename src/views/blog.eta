@@ -1,13 +1,16 @@
 <% layout("./skeleton") %>
+<% /* night-owl, atom-one-dark, tokyo-night-dark */ %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/tokyo-night-dark.min.css">
 <div style="height: 56px;"></div>
 <div class="container d-flex flex-column justify-content-start h-100">
     
     <div class="flex-row d-flex justify-content-center mt-4 flex-wrap">
         <div class="col-lg-4 col-12 menu order-2 order-lg-0">
-            <div style="position: sticky; top:56px;">
+            <div style="position: sticky; top:calc(-100% + 100vh - 128px);">
                 <h1 class="header-2 mb-3">Blog</h1>
                 <%~ include("./partials/article-list", {
-                    articles: it.articles   
+                    articles: it.articles,
+                    currentId: it.article?.id
                 }) %>
                 <p class="text-muted text-center mt-2">that's all for now</p>
             </div>

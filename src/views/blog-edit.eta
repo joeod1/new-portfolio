@@ -1,6 +1,9 @@
 <% layout("./skeleton") %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/night-owl.min.css">
 <link href="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/editor/editor.main.min.css" rel="stylesheet">
+
 <div style="height: 56px;"></div>
+
 <div class="container d-flex flex-column justify-content-start h-100">
     
     <div class="flex-row d-flex justify-content-center mt-4">
@@ -10,7 +13,7 @@
                 <input id="series" class="form-control" placeholder="Series" value="<%~ it.article.series %>"></input>
                 <input id="title" class="form-control my-2" placeholder="TItle" value="<%~ it.article.title %>"></input>
                 <% /* <h1 class="header-2 mb-3"><%= JSON.stringify(it.series) %></h1> */ %>
-                <div id="editor" class="w-reading" style="height: 80vh"></div>
+                <div id="editor" class="w-reading overflow-hidden" style="height: 80vh"></div>
             </div>
         </div>
         <div class="col-6 px-3">

@@ -82,7 +82,14 @@ Array.from(document.getElementsByClassName("masonry-grid")).forEach(grid => {
     });
 
     // setInterval(() => msr.layout(), 100);
-})
+});
+
+import mermaid from "mermaid";
+
+mermaid.initialize({
+    securityLevel: 'loose',
+    theme: 'dark'
+});
 
 // canvas.style.height = "100%";
 // canvas.style.width = "100%";
