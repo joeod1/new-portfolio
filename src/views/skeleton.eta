@@ -5,6 +5,7 @@
   <title><%= it.title ?? "Joseph O'Dowd" %></title>
   <link href="/index.css" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="<%= it.meta?.description ?? "Joseph O'Dowd's portfolio" %>" />
 </head>
 
 <body class="d-flex flex-column min-vh-100">

@@ -70,11 +70,15 @@ const handler: RouteHandler = async function(request: FastifyRequest, response: 
     console.log(article);
     article[0].content = await marked.parse(article[0].content ?? "");
 
+
     // console.log(request.session.user);
 
     return response.viewAsync('blog.eta', { 
         articles: articles,
         article: article[0] ?? {},
-        user: request.session.user
+        user: request.session.user,
+        meta: {
+            description: article[0]?.content.substring(0, 150) ?? null
+        }
     });
 }
