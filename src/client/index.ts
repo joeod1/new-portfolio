@@ -12,7 +12,6 @@ function fixCanvases() {
     canvases.forEach((canvas: HTMLCanvasElement) => {
         canvas.height = (canvas.parentElement.clientHeight - 56);
         canvas.width = (canvas.parentElement.clientWidth);
-        console.log("Damn");
     });
 }
 
