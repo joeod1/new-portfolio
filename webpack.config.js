@@ -1,8 +1,19 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from 'path';
+import { RsdoctorWebpackPlugin } from "@rsdoctor/webpack-plugin";
+import { EsbuildPlugin } from "esbuild-loader";
+
 const devMode = process.env.NODE_ENV !== "production";
-const path = require('path');
-module.exports = {
-  mode: 'development',
+const __dirname = import.meta.dirname;
+
+export default {
+  stats: {
+    assets: false,
+    modules: false,
+    warnings: false,
+    errors: true
+  },
+  mode: devMode ? 'development' : 'production',
   entry: {
     'index': path.join(__dirname, 'src', 'client', 'index.ts'), 
     'blog-edit': path.join(__dirname, 'src', 'client', 'blog-edit.ts')
@@ -12,31 +23,24 @@ module.exports = {
     path: path.join(__dirname, 'src', 'dist'),
     publicPath: 'auto',
     filename: "[name].js",
-    chunkFilename: '[name].js'
+    chunkFilename: '[name].js',
+  
   },
   module: {
-    rules: [{
-      test: /.jsx?$/,
-      include: [
-        path.resolve(__dirname, 'src')
-      ],
-      exclude: [
-        path.resolve(__dirname, 'node_modules')
-      ],
-      loader: 'babel-loader',
-      options: {
-        presets: [
-          ["@babel/env", {
-            "targets": {
-              "browsers": "last 2 chrome versions"
-            }
-          }]
-        ]
-      }
-    },
+    rules: [
     {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
+      test: /\.[jt]sx?$/,
+      loader: 'esbuild-loader',
+      options: {
+        // transpileOnly: true
+        minify:true,
+        minifyWhitespace: true,
+        minifyIdentifiers: true,
+        minifySyntax: true,
+
+        sourcemap: false,
+        treeShaking: true
+      },
       exclude: /node_modules/,
     },
     {
@@ -45,21 +49,42 @@ module.exports = {
         // Creates `style` nodes from JS strings
         devMode ? "style-loader" : MiniCssExtractPlugin.loader,
         // Translates CSS into CommonJS
-        "css-loader",
+        {
+          loader: "css-loader",
+          options: {
+            sourceMap: false,
+          }
+        },
         // Compiles Sass to CSS
-        "sass-loader",
+        {
+          loader: "sass-loader",
+          options: {
+            sourceMap: false
+          }
+        },
       ],
     }]
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new EsbuildPlugin({minify: true, minifyIdentifiers: true, minifySyntax: true, minifyWhitespace: true})
+    ]
   },
   resolve: {
     extensions: ['.json', '.ts', '.tsxw', '.css', '.sass', '.scss', '.js', '.jsx']
   },
-  devtool: 'source-map',
+  devtool: false,
   devServer: {
     contentBase: path.join(__dirname, 'src', '/dist/'),
     inline: true,
     host: 'localhost',
     port: 8080,
   },
-  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin()]),
-};
+  plugins: [
+    ...devMode ? [new MiniCssExtractPlugin()] : [], 
+    ...devMode ? [new RsdoctorWebpackPlugin({})] : []
+  ],
+  externals: {
+  }
+}

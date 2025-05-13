@@ -6,3 +6,5 @@ node_modules
 *.log
 *.env
 secret-key
+src/dist/**/*.js.LICENSE.txt
+src/dist/.rsdoctor
