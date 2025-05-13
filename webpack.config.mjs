@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from 'path';
-import { RsdoctorWebpackPlugin } from "@rsdoctor/webpack-plugin";
-import { EsbuildPlugin } from "esbuild-loader";
+import {RsdoctorWebpackPlugin} from "@rsdoctor/webpack-plugin";
+import {EsbuildPlugin} from "esbuild-loader";
 
 const devMode = process.env.NODE_ENV !== "production";
 const __dirname = import.meta.dirname;

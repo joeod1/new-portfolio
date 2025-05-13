@@ -12,7 +12,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:dist",
     "watch:server": "nodemon -e ts,eta ./src/server.ts",
-    "watch:dist": "webpack -c ./webpack.config.js",
+    "watch:dist": "webpack -c ./webpack.config.mjs",
     "watch:css": "sass --watch ./src/client:./src/dist",
     "build:db": "kysely-codegen"
   },
