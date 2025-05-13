@@ -1,12 +1,12 @@
 import * as monaco from "monaco-editor";
 import { Marked, Tokens } from "marked";
 
-import mermaid from "mermaid";
+// import mermaid from "mermaid";
 
-mermaid.initialize({
-    securityLevel: 'loose',
-    theme: 'dark'
-});
+// mermaid.initialize({
+//     securityLevel: 'loose',
+//     theme: 'dark'
+// });
 
 import {markedHighlight} from "marked-highlight";
 import hljs from "highlight.js";
@@ -30,15 +30,15 @@ marked.use({
                         <img src="${href}" tooltip="${title}">
                     </div>`;
         },
-        code(o : Tokens.Code) {
-            console.log(o.lang);
-            if (o.lang == "mermaid") {
-                // console.log(o.raw.substring(11, o.raw.length - 4));
-                return "<pre class='mermaid'>" + o.text + "</pre>";
-            } else {
-                return `<pre><code class='hljs language-${o.lang}'>${o.text}</code></pre>`;
-            }
-        }
+        // code(o : Tokens.Code) {
+        //     console.log(o.lang);
+        //     if (o.lang == "mermaid") {
+        //         // console.log(o.raw.substring(11, o.raw.length - 4));
+        //         return "<pre class='mermaid'>" + o.text + "</pre>";
+        //     } else {
+        //         return `<pre><code class='hljs language-${o.lang}'>${o.text}</code></pre>`;
+        //     }
+        // }
     }
 });
 
@@ -66,7 +66,7 @@ const editor = monaco.editor.create(document.getElementById('editor'), {
 async function render() {
     content = editor.getValue();
     document.getElementById("content").innerHTML = await marked.parse(content);
-    await mermaid.run();
+    // await mermaid.run();
     editor.layout();
 }
 // ... upon initialization
