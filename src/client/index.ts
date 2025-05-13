@@ -1,5 +1,4 @@
 import "./default.scss";
-import "bootstrap";
 
 import * as masonry from "masonry-layout";
 
