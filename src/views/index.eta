@@ -14,7 +14,7 @@
                 <% /* <p class="align-middle mb-0">Software developer </p> */ %>
             </div>
             <div class="d-flex flex-row gap-1 float-end mt-2">
-                <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="emailto:joseph-odowd-dev@outlook.com">E-Mail</a>
+                <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="emailto:josephodowd-dev@outlook.com">E-Mail</a>
                 <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="https://github.com/joeod1/">GitHub</a>
             </div>
         </div>
