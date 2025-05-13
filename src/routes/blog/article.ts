@@ -74,6 +74,7 @@ const handler: RouteHandler = async function(request: FastifyRequest, response: 
         articles: articles,
         article: article[0] ?? {},
         user: request.session.user,
+        title: article[0].series + ": " + article[0].title,
         meta: {
             description: preview ?? null
         }
