@@ -82,7 +82,7 @@ export default {
     port: 8080,
   },
   plugins: [
-    ...devMode ? [new MiniCssExtractPlugin()] : [], 
+    ...devMode ? []: [new MiniCssExtractPlugin()], 
     ...devMode ? [new RsdoctorWebpackPlugin({})] : []
   ],
   externals: {
