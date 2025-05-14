@@ -1,12 +1,12 @@
 <% layout("./skeleton") %>
 <% /* night-owl, atom-one-dark, tokyo-night-dark */ %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/tokyo-night-dark.min.css">
-<div style="height: 56px;"></div>
+<link nonce="<%~ it.nonce.style %>" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/tokyo-night-dark.min.css">
+<div class="nav-height"></div>
 <div class="container d-flex flex-column justify-content-start h-100">
     
     <div class="flex-row d-flex justify-content-center mt-4 flex-wrap">
         <div class="col-lg-4 col-12 menu order-2 order-lg-0">
-            <div style="position: sticky; top:calc(-100% + 100vh - 128px);">
+            <div class="nav-sticky-bottom">
                 <h1 class="header-2 mb-3">Blog</h1>
                 <%~ include("./partials/article-list", {
                     articles: it.articles,
@@ -30,12 +30,12 @@
                         <a href="/blog/<%~ it.article.id %>/publish">🔓</a>
                     <% } %>
                 </h2>
-                <div style="text-align:left; font-family: sans-serif; font-size: 1rem;">
+                <div class="article-body-text">
                     <%~ it.article.content %>
                 </div>
             </div>
         </div>
-        <script type="module"> import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.6.0/+esm"; mermaid.initialize({ theme: 'dark' }) </script>
+        <script nonce="<%~ it.nonce.script %>" type="module"> import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.6.0/+esm"; mermaid.initialize({ theme: 'dark' }) </script>
             <% } %>
     </div>
 </div>

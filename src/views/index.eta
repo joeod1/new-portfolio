@@ -9,7 +9,7 @@
     <div class="container layer d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap">
         <!-- Call to action -->
         <div class="col-xl-6 col-lg-6 col-12">
-            <h1 class="header-1 split" style="font-family:bodoni">Software Developer</h1>
+            <h1 class="header-1 split serif-header">Software Developer</h1>
             <div class="d-flex flex-row gap-1">
                 <% /* <p class="align-middle mb-0">Software developer </p> */ %>
             </div>
@@ -25,11 +25,11 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+<script nonce="<%~ it.nonce.script %>" type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
 
 <!-- 'About me' section -->
 <div class="container w-100 my-2 text-right">
-    <h2 class="header-2 text-end mt-3" style="font-family: Bodoni, serif" id="wia-header">Who I Am</h2>
+    <h2 class="header-2 text-end mt-3 serif-header" id="wia-header">Who I Am</h2>
 
     <!-- List of project cards; animations are handled by GSAP -->
     <div class="d-flex flex-row flex-wrap">
@@ -64,7 +64,7 @@
 <div class="hero w-100 h-100">
     <div class="layer gradient-bg"></div>
     <div class="container layer pt-3">
-    <h2 class="header-2" style="font-family: Bodoni, serif">Project Showcase</h2>
+    <h2 class="header-2 serif-header">Project Showcase</h2>
         <div class="d-flex flex-row flex-wrap masonry-grid">
             <%~ include("./partials/project-card", { 
                 title: "University Capstone", 

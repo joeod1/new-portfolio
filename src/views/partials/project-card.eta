@@ -1,14 +1,14 @@
 <div class="p-2 col-lg-4 col-md-6 col-12 project-card">
     <div class="card h-100 rounded-4">
         <% if (it.image) { %>
-        <div class="rounded-4 card-img-top overflow-hidden" style="height: 256px">
-            <img class="layer h-100 w-100" style="object-fit: cover; mask-image: linear-gradient(black 20%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);" src="<%~ it.image %>">
+        <div class="rounded-4 card-img-top overflow-hidden height-256px">
+            <img class="layer h-100 w-100 object-fit-cover gradient-mask" src="<%~ it.image %>">
             <div class="card-links">
 
             </div>
         </div>
         <% } %>
-        <div class="card-body p-3" style="position: relative; <% if (it.image) { %> margin-bottom: -128px; top: -128px; <% } %>">
+        <div class="card-body p-3 <% if (it.image) { %> over-card-image <% } %>">
             <h5><%= it.title %>
             <% it.langs.forEach(lang => { %>
                 <span class="badge bg-primary ms-1 mt-1 rounded-5"><%= lang %></span>

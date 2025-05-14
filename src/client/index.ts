@@ -1,5 +1,7 @@
 import "./default.scss";
 
+const __webpack_nonce__ = 'c29tZSBjb29sIHN0cmluZyB3aWxsIHBvcCB1cCAxMjM=';
+
 import * as masonry from "masonry-layout";
 
 import gsap from "gsap";

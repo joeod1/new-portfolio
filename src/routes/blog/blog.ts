@@ -22,6 +22,7 @@ const handler: RouteHandler = async function(request: FastifyRequest, response: 
     const articles = await articleQuery.execute();
 
     return response.viewAsync('blog.eta', { 
-        articles: articles
+        articles: articles,
+        nonce: response.cspNonce ?? {style: "", script: ""}
     });
 }

@@ -20,6 +20,7 @@ const handler: RouteHandler = async function(request: FastifyRequest, response: 
         .where('articles.public', '=', true)
         .limit(3).execute();
     return response.viewAsync('index.eta', { 
-        articles: articles
+        articles: articles,
+        nonce: response.cspNonce ?? {style: "", script: ""}
     });
 }

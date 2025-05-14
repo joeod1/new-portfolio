@@ -8,3 +8,4 @@ node_modules
 secret-key
 src/dist/**/*.js.LICENSE.txt
 src/dist/.rsdoctor
+src/dist/blog

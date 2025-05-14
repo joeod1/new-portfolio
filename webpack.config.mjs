@@ -88,5 +88,5 @@ export default {
     ...devMode ? [new RsdoctorWebpackPlugin({})] : []
   ],
   externals: {
-  }
+  },
 };
