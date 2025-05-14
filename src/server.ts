@@ -16,7 +16,14 @@ async function run() {
 
     // Initialize Fastify
     const server = fastify({
-        logger: true,
+        logger: {
+            transport: {
+                target: 'pino-pretty',
+                options: {
+
+                }
+            }
+        },
         https: (process.env.NODE_ENV == "production") ? {
             cert: readFileSync(process.env.SSL_CERT as string),
             key: readFileSync(process.env.SSL_KEY as string),
