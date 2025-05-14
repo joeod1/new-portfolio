@@ -73,7 +73,8 @@
 
 .nav-sticky-bottom {
     position: sticky; 
-    top:calc(-100% + 100vh - 128px);
+    top: calc(-100% + 100vh + 56px);
+    // bottom: 0px;
 }
 
 .article-body-text {
