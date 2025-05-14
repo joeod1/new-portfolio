@@ -176,6 +176,9 @@ footer {
             max-width: 100%;
         }
     }
+    pre {
+        max-width: 80ch;
+    }
     h2 {
         font-family: var(--bs-body-font-family);
         // font-family: sans-serif;
