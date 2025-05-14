@@ -2,6 +2,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from 'path';
 import {RsdoctorWebpackPlugin} from "@rsdoctor/webpack-plugin";
 import {EsbuildPlugin} from "esbuild-loader";
+import WebpackBar from "webpackbar";
 
 const devMode = process.env.NODE_ENV !== "production";
 const __dirname = import.meta.dirname;
@@ -82,9 +83,10 @@ export default {
     port: 8080,
   },
   plugins: [
+    new WebpackBar(),
     ...devMode ? []: [new MiniCssExtractPlugin()], 
     ...devMode ? [new RsdoctorWebpackPlugin({})] : []
   ],
   externals: {
   }
-}
+};
