@@ -1,0 +1,16 @@
+<% layout("./skeleton") %>
+
+<div class="vh-100 w-100 d-flex flex-column align-items-center justify-content-center">
+    <input type="number" id="base-freq" style="max-width: 128px" class="form-control" value="250">
+    <div class="d-flex flex-row gap-2 mt-2" id="note-group">
+        <% /* <input style="max-width: 64px" class="form-control" value="1M">
+        <input style="max-width: 64px" class="form-control" value="2m">
+        <input style="max-width: 64px" class="form-control" value="4m">
+        <input style="max-width: 64px" class="form-control" value="5M"> */ %>
+    </div>
+    <div class="d-flex flex-row gap-2 mt-2" id="chord-row">
+        <div style="">
+    </div>
+</div>
+
+<script src="/noise.js"></script>
