@@ -17,7 +17,8 @@ export default {
   mode: devMode ? 'development' : 'production',
   entry: {
     'index': path.join(__dirname, 'src', 'client', 'index.ts'), 
-    'blog-edit': path.join(__dirname, 'src', 'client', 'blog-edit.ts')
+    'blog-edit': path.join(__dirname, 'src', 'client', 'blog-edit.ts'),
+    'noise': path.join(__dirname, 'src', 'client', 'noise.ts')
   },
   watch: true,
   output: {
@@ -34,13 +35,13 @@ export default {
       loader: 'esbuild-loader',
       options: {
         // transpileOnly: true
-        minify:true,
-        minifyWhitespace: true,
-        minifyIdentifiers: true,
-        minifySyntax: true,
+        // minify:true,
+        // minifyWhitespace: true,
+        // minifyIdentifiers: true,
+        // minifySyntax: true,
 
-        sourcemap: false,
-        treeShaking: true
+        sourcemap: devMode,
+        treeShaking: !devMode
       },
       exclude: /node_modules/,
     },
@@ -53,21 +54,21 @@ export default {
         {
           loader: "css-loader",
           options: {
-            sourceMap: false,
+            sourceMap: devMode,
           }
         },
         // Compiles Sass to CSS
         {
           loader: "sass-loader",
           options: {
-            sourceMap: false
+            sourceMap: devMode
           }
         },
       ],
     }]
   },
   optimization: {
-    minimize: true,
+    minimize: !devMode,
     minimizer: [
       new EsbuildPlugin({minify: true, minifyIdentifiers: true, minifySyntax: true, minifyWhitespace: true})
     ]
@@ -75,7 +76,7 @@ export default {
   resolve: {
     extensions: ['.json', '.ts', '.tsxw', '.css', '.sass', '.scss', '.js', '.jsx']
   },
-  devtool: false,
+  devtool: devMode ? "eval" : false,
   devServer: {
     contentBase: path.join(__dirname, 'src', '/dist/'),
     inline: true,
@@ -89,4 +90,9 @@ export default {
   ],
   externals: {
   },
+  cache: {
+    type: devMode ? "memory" : "filesystem",
+    ...(devMode ? {} : {
+    })
+  }
 };
