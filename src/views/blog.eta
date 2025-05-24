@@ -6,15 +6,17 @@
     
     <div class="flex-row d-flex justify-content-center mt-4 flex-wrap">
         <div class="col-lg-4 col-12 menu order-2 order-lg-0">
-            <div class="nav-sticky-bottom">
-                <h1 class="header-2 mb-3">Blog</h1>
-                <%~ include("./partials/article-list", {
-                    articles: it.articles,
-                    currentId: it.article?.id
-                }) %>
-                <p class="text-muted text-center mt-2">that's all for now</p>
+            <% /* <div clcass="nav-sticky-bottom-wrapper"> */ %>
+                <div class="nav-sticky-bottom">
+                    <h1 class="header-2 mb-3">Blog</h1>
+                    <%~ include("./partials/article-list", {
+                        articles: it.articles,
+                        currentId: it.article?.id
+                    }) %>
+                    <p class="text-muted text-center mt-2">that's all for now</p>
+                </div>
             </div>
-        </div>
+        <% /* </div> */ %>
             <% if (!it.article) { %>
             <% } else { %>
         <div class="w-reading px-3 ">
@@ -35,7 +37,23 @@
                 </div>
             </div>
         </div>
-        <script nonce="<%~ it.nonce.script %>" type="module"> import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.6.0/+esm"; mermaid.initialize({ theme: 'dark' }) </script>
+        <script nonce="<%~ it.nonce.script %>" type="module"> 
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.esm.mjs";
+
+    mermaid.initialize({
+        theme: 'dark',
+        startOnLoad: true,
+        logLevel: 0,
+      });
+      mermaid.registerIconPacks([
+        {
+          name: 'logos',
+          loader: () =>
+            fetch('https://unpkg.com/@iconify-json/logos/icons.json').then((res) => res.json()),
+        },
+      ]);
+      await mermaid.run();
+     </script>
             <% } %>
     </div>
 </div>
