@@ -49,4 +49,28 @@
     <a id="saveButton" class="btn btn-primary">Save</a>
 </div>
 
+<script nonce="<%~ it.nonce.script %>" type="module"> 
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.esm.mjs";
+
+    mermaid.initialize({
+        theme: 'dark',
+        startOnLoad: true,
+        logLevel: 0,
+      });
+      mermaid.registerIconPacks([
+        {
+          name: 'logos',
+          loader: () =>
+            fetch('https://unpkg.com/@iconify-json/logos/icons.json').then((res) => res.json()),
+        },
+      ]);
+      await mermaid.run();
+
+    const observer = new MutationObserver((mutationsList, observer) => {
+        mermaid.run();
+    });
+
+    observer.observe(document.getElementById("content"), {characterData: false, childList: true, attributes: false});
+</script>
+
 <script nonce="<%~ it.nonce.script %>" src="/blog-edit.js"></script>
