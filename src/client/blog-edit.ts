@@ -1,5 +1,5 @@
 import * as monaco from "monaco-editor";
-import { Marked } from "marked";
+import { Marked, Tokens } from "marked";
 
 // import mermaid from "mermaid";
 
@@ -30,15 +30,15 @@ marked.use({
                         <img src="${href}" tooltip="${title}">
                     </div>`;
         },
-        // code(o : Tokens.Code) {
-        //     console.log(o.lang);
-        //     if (o.lang == "mermaid") {
-        //         // console.log(o.raw.substring(11, o.raw.length - 4));
-        //         return "<pre class='mermaid'>" + o.text + "</pre>";
-        //     } else {
-        //         return `<pre><code class='hljs language-${o.lang}'>${o.text}</code></pre>`;
-        //     }
-        // }
+        code(o : Tokens.Code) {
+            console.log(o.lang);
+            if (o.lang == "mermaid") {
+                // console.log(o.raw.substring(11, o.raw.length - 4));
+                return "<pre class='mermaid'>" + o.text + "</pre>";
+            } else {
+                return `<pre><code class='hljs language-${o.lang}'>${o.text}</code></pre>`;
+            }
+        }
     }
 });
 
