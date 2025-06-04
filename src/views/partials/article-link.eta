@@ -1,7 +1,7 @@
-<a href="/blog/<%~ it.article.id %>" class="mx-2 mh-2 card py-2 px-3 article-link link-reset text-decoration-none <%if (it.current) {%>border-primary border-2<% } %>">
-    <div class="d-flex flex-row justify-content-between align-items-between">
-        <span class="text-muted"><%= it.article.series %></span>
-        <span class="text-muted"><%= it.article.date_created.toLocaleDateString() %></span>
+<a href="/blog/<%~ it.article.id %>" class="mx-2 mh-2 dark:bg-secondary-200 bg-secondary text-white rounded-2xl py-2 px-4 article-link link-reset text-decoration-none <%if (it.current) {%>border-primary border-2<% } %>">
+    <div class="flex flex-row justify-between align-between">
+        <span class="dark:text-muted text-gray-300"><%= it.article.series %></span>
+        <span class="dark:text-muted text-gray-300"><%= it.article.date_created.toLocaleDateString() %></span>
     </div>
-    <h4><%= it.article.title %></h4>
+    <h4 class="text-white"><%= it.article.title %></h4>
 </a>

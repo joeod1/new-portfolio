@@ -1,21 +1,21 @@
 <% layout("./skeleton") %>
 
 <!-- Above-the-fold hero -->
-<div class="hero w-100 h-100">
+<div class="hero w-full h-full">
 <% /* <div class="hero container d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap"> */ %>
     <!-- Fancy fragment shader background -->
-    <canvas class="glslCanvas layer" data-fragment-url="/shaders/hero.glsl"></canvas>
+    <canvas class="glslCanvas layer bg-primary-500" data-fragment-url="/shaders/hero.glsl"></canvas>
     
-    <div class="container layer d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap">
+    <div class="max-w-7xl px-10 container m-auto layer flex lg:flex-row flex-col gap-5 lg:justify-between justify-center lg:align-middle flex-wrap">
         <!-- Call to action -->
-        <div class="col-xl-6 col-lg-6 col-12">
+        <div class="col-xl-6 col-lg-6 col-12 flex flex-col justify-center">
             <h1 class="header-1 split serif-header">Software Developer</h1>
-            <div class="d-flex flex-row gap-1">
+            <div class="d-flex flex-row gap-1 ">
                 <% /* <p class="align-middle mb-0">Software developer </p> */ %>
             </div>
-            <div class="d-flex flex-row gap-1 float-end mt-2">
-                <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="emailto:josephodowd-dev@outlook.com">E-Mail</a>
-                <a class="ms-1 px-5 btn btn-hp-primary d-inline-block align-middle" href="https://github.com/joeod1/">GitHub</a>
+            <div class="flex flex-row gap-1 justify-end mt-2 w-full">
+                <a class="ms-1 px-5 btn btn-hp-primary link-reset d-inline-block align-middle" href="emailto:josephodowd-dev@outlook.com">E-Mail</a>
+                <a class="ms-1 px-5 btn btn-hp-primary link-reset d-inline-block align-middle" href="https://github.com/joeod1/">GitHub</a>
             </div>
         </div>
 
@@ -28,13 +28,13 @@
 <script nonce="<%~ it.nonce.script %>" type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
 
 <!-- 'About me' section -->
-<div class="container w-100 my-2 text-right">
+<div class="container max-w-7xl m-auto my-2 text-right px-6">
     <h2 class="header-2 text-end mt-3 serif-header" id="wia-header">Who I Am</h2>
 
     <!-- List of project cards; animations are handled by GSAP -->
-    <div class="d-flex flex-row flex-wrap">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-1">
         <%~ include("./partials/who-am-i", {
-            classes: " col-lg-3 col-12 col-md-6 ",
+            classes: " col-span-1 ",
             title: "Software Developer",
             description: "Writing code is a skill that I've developed over years of hobbies, education, and work.",
             links: [
@@ -43,29 +43,29 @@
             ]
         }) %>
         <%~ include("./partials/who-am-i", {
-            classes: " col-lg-3 col-12 col-md-6 ",
+            classes: " col-span-1 ",
             title: "Music Producer",
             description: "My family's always had music equipment laying around the house, so I've slowly gotten into it.",
             audio: "/audio/music-sample.mp3"
         }) %>
         <%~ include("./partials/who-am-i", {
-            classes: " col-lg-3 col-12 col-md-6 ",
+            classes: " col-span-1 ",
             title: "Casual Hiker",
             description: "There's nothing better than taking a walk in nature. Everything tells a story. I photograph what I see.",
         }) %>
         <%~ include("./partials/who-am-i", {
-            classes: " col-lg-3 col-12 col-md-6 ",
+            classes: " col-span-1 ",
             title: "College Graduate",
             description: "I graduated in 2024 from the University of Massachusetts Darmouth with highest honors and the CIS department's outstanding transfer student award.",
         }) %>
     </div>
 </div>
 
-<div class="hero w-100 h-100">
-    <div class="layer gradient-bg"></div>
-    <div class="container layer pt-3">
+<div class="hero w-full h-full">
+    <div class="layer bg-gradient-to-br from-primary-200 to-primary-100"></div>
+    <div class="container max-w-7xl m-auto px-5 layer pt-3 pb-5">
     <h2 class="header-2 serif-header">Project Showcase</h2>
-        <div class="d-flex flex-row flex-wrap masonry-grid">
+        <div class="grid flex-row lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 flex-wrap" >
             <%~ include("./partials/project-card", { 
                 title: "University Capstone", 
                 langs: ["Python", "HTML", "CSS", "SQL"],

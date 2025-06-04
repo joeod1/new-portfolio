@@ -1,4 +1,5 @@
-import "./default.scss";
+// import "./default.scss";
+import "./style.css";
 
 const __webpack_nonce__ = 'c29tZSBjb29sIHN0cmluZyB3aWxsIHBvcCB1cCAxMjM=';
 

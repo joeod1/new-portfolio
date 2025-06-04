@@ -7,6 +7,7 @@
     "@types/ws": "^8.18.1",
     "babel-loader": "^8.2.5",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
+    "tw-colors": "^4.0.0-beta.1",
     "webpack-dev-server": "^4.10.0"
   },
   "scripts": {
@@ -30,8 +31,13 @@
     "@fastify/websocket": "^11.0.2",
     "@langchain/ollama": "^0.2.0",
     "@rsdoctor/webpack-plugin": "^1.1.2",
+    "@tailwindcss/cli": "^4.1.8",
+    "@tailwindcss/postcss": "^4.1.8",
     "@types/masonry-layout": "^4.2.8",
     "@types/pg": "^8.15.1",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.6",
     "css-loader": "^7.1.2",
     "dotenv": "^16.5.0",
@@ -42,6 +48,7 @@
     "fastify-plugin": "^5.0.1",
     "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
+    "immer": "^10.1.1",
     "kysely": "^0.27.6",
     "kysely-codegen": "^0.18.3",
     "marked": "^15.0.11",
@@ -55,11 +62,17 @@
     "passport-google-oauth2": "^0.2.0",
     "pg": "^8.15.6",
     "pino-pretty": "^13.0.0",
+    "postcss": "^8.5.4",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sanitize-filename": "^1.6.3",
     "sass": "^1.87.0",
     "sass-loader": "^16.0.5",
     "speed-measure-webpack-plugin": "^1.5.0",
     "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.8",
     "tone": "^15.1.22",
     "ts-loader": "^9.5.2",
     "tsx": "^4.19.3",
@@ -67,6 +80,7 @@
     "undici-types": "^7.8.0",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1",
-    "webpackbar": "^7.0.0"
+    "webpackbar": "^7.0.0",
+    "zustand": "^5.0.4"
   }
 }

@@ -1,10 +1,10 @@
 <div class="<%~ it.classes %> wai p-1">
-    <div class="card h-100 d-flex flex-column">
-        <div class="p-3 flex-grow-1">
-            <h3><%~ it.title %></h3>
+    <div class="shadow-2xl bg-gradient-to-br to-secondary-300 from-secondary-200 rounded-2xl h-full flex flex-col">
+        <div class="p-3 grow text-left">
+            <h3 class="text-3xl mb-2"><%~ it.title %></h3>
             <p><%~ it.description %></p>
         </div>
-        <div class="card-img-bottom  px-3 pb-3 gap-3 d-flex flex-row justify-content-end">
+        <div class="card-img-bottom px-3 pb-3 gap-3 flex flex-row justify-end">
             <% if (it.audio) { %>
                 <audio preload="none" controls src="<%~ it.audio %>"></audio>
             <% } %>
@@ -13,7 +13,7 @@
                 
                     <a href="<%~ link.href %>" class="text-reset">
                         <% if (link.icon) { %>
-                            <img src="<%~ link.icon %>" alt="<%~ link.text %>" height="24" />
+                            <img src="<%~ link.icon %>" alt="<%~ link.text %>" class="h-6" height="24" />
                         <% } else { %>
                             <%~ link.text %>
                         <% } %>
