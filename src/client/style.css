@@ -103,7 +103,11 @@
 
 .header-1 {
     font-size: 4.5rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 3.4rem;
+    }
 }
 
 .header-2 {
