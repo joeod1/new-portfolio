@@ -4,7 +4,7 @@
 <div class="hero w-full h-full">
 <% /* <div class="hero container d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap"> */ %>
     <!-- Fancy fragment shader background -->
-    <canvas class="glslCanvas layer bg-primary-500" data-fragment-url="/shaders/hero.glsl"></canvas>
+    <canvas class="glslCanvas layer" data-fragment-url="/shaders/hero.glsl"></canvas>
     
     <div class="max-w-7xl px-10 container m-auto layer flex lg:flex-row flex-col gap-5 lg:justify-between justify-center lg:align-middle flex-wrap">
         <!-- Call to action -->
