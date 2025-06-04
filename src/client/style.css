@@ -255,6 +255,22 @@ footer {
 
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  margin: 4px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    @apply bg-gradient-to-bl from-secondary-500 to-secondary-200 rounded-2xl;
+}
+
 .glslCanvas {
 
     width: 100%;
