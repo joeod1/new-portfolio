@@ -245,7 +245,7 @@ footer {
     outline-style: none !important;
 }
 
-code {
+.hljs {
     padding: 1em;
     @apply m-3 rounded-2xl;
     
