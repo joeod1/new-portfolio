@@ -1,12 +1,12 @@
 <% layout("./skeleton") %>
 
 <!-- Above-the-fold hero -->
-<div class="hero w-full h-full">
+<div class="hero w-full min-h-dvh max-w-dvw overflow-hidden">
 <% /* <div class="hero container d-flex flex-lg-row flex-column gap-5 justify-content-lg-between justify-content-center align-items-lg-center flex-wrap"> */ %>
     <!-- Fancy fragment shader background -->
     <canvas class="glslCanvas layer" data-fragment-url="/shaders/hero.glsl"></canvas>
     
-    <div class="max-w-7xl px-10 container m-auto layer flex lg:flex-row flex-col gap-5 lg:justify-between justify-center lg:align-middle flex-wrap">
+    <div class="w-7xl max-w-lvw px-10 container m-auto layer flex lg:flex-row flex-col gap-5 lg:justify-between justify-center lg:align-middle flex-wrap">
         <!-- Call to action -->
         <div class="col-xl-6 col-lg-6 col-12 flex flex-col justify-center">
             <h1 class="header-1 split serif-header">Software Developer</h1>
