@@ -254,7 +254,7 @@ footer {
     @apply m-3 rounded-2xl;
     
     /* &:nth-child(mod(n, 4) == 0) { */
-        @apply bg-gradient-to-tr dark:from-secondary-100 dark:to-secondary-300 from-secondary-800 to-secondary-900;
+        @apply bg-gradient-to-tr dark:from-secondary-100 dark:to-secondary-200 from-secondary-800 to-secondary-900;
     /* } */
 
 }
