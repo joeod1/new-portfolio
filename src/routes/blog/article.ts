@@ -27,7 +27,7 @@ const marked = new Marked(
 marked.use({
     renderer: {
         image({href, title, text, tokens}) {
-            return `<div class="w-100 d-flex flex-row justify-content-center">
+            return `<div class="d-flex flex-row justify-content-center">
                         <img src="${href}" tooltip="${title}">
                     </div>`;
         },
